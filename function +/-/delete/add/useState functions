@@ -1,0 +1,29 @@
+  const [counts, setCounts] = useState(initialCounters)
+ 
+ const minus = (id) => {
+        const updatedCounts = counts.map(el => el.id === id
+            ? {...el, value: el.value - 1}
+            : el
+        );
+        setCounts(updatedCounts)
+    }
+    const plus = (id) => {
+        const updatedCounts = counts.map(el => el.id === id
+            ? {...el, value: el.value + 1}
+            : el
+        );
+        setCounts(updatedCounts)
+    }
+    const addCounter = () => {
+        const newCount = {
+            id: Math.random(),
+            value:0
+        };
+        setCounts([...counts,newCount])
+    }
+    const deleteCounter = (id)=> {
+        const deleteCount =
+            counts.filter(el => el.id !== id)
+
+        setCounts(deleteCount)
+    }
